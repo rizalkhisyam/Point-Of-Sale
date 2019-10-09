@@ -20,4 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@dashboard');
 Route::get('/admins','AdminController@index');
 Route::get('/tambahData','AdminController@tambah');
-
+Route::get('/tambahDataBarang','BarangController@tambahDataBarang');
+Route::get('/dataTransaksi','TransaksiController@lihatDataTransaksi');

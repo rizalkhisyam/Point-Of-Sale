@@ -108,14 +108,19 @@
       <li class="nav-item">
         <a class="nav-link" href="/tambahData">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>+ Karyawan</span></a>
+          <span>Data Karyawan</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="/tambahDataBarang">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Data Barang</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/dataTransaksi">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Data Transaksi</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

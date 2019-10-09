@@ -21,9 +21,9 @@ class BarangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function tambahDataBarang()
     {
-        //
+        return view('admin.dataBarang');
     }
 
     /**
