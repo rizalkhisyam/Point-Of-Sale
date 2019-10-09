@@ -17,7 +17,7 @@ class AdminController extends Controller
     }
 
     public function tambah(){
-        return view('admin.tambahKaryawan');
+        return view('admin.dataKaryawan');
     }
 
     /**
