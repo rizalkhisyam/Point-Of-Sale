@@ -41,7 +41,7 @@ class BarangController extends Controller
             'stok'=> $request->stok,
         ]);
         Barang::create($insert);
-        return view ('admin.index');
+        return redirect('/tambahDataBarang');
     }
 
     /**
