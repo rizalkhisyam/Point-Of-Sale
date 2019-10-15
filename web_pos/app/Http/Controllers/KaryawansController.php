@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Karyawan;
-class AdminController extends Controller
+class KaryawansController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +13,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
-    }
-
-    public function karyawan(){
-
-        $karyawan = Karyawan::all();
-        return view('admin.dataKaryawan', compact('karyawan'));
+        
     }
 
     /**
@@ -29,7 +23,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -40,7 +34,16 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insert = ([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'level' => $request->level,
+        ]);
+
+        Karyawan::create($insert);
+        return redirect('/tambahData');
+        
     }
 
     /**
@@ -51,7 +54,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
