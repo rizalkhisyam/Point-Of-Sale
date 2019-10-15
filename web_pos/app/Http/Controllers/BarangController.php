@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Barang;
 class BarangController extends Controller
 {
     /**
@@ -32,9 +32,16 @@ class BarangController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function tambahBarang(Request $request)
     {
-        //
+        $insert =([
+            'nama_barang'=> $request->nama_barang,
+            'harga'=> $request->harga,
+            'kode'=> $request->kode,
+            'stok'=> $request->stok,
+        ]);
+        Barang::create($insert);
+        return view ('admin.index');
     }
 
     /**
@@ -43,9 +50,10 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function dataBarang()
     {
-        //
+        $tampil = Barang::all();
+        return view ('admin.dataBarang', compact('tampil'));
     }
 
     /**
