@@ -19,6 +19,7 @@ class Barang extends Migration
             $table->char('kode', 5)->unique();
             $table->integer('harga');
             $table->integer('stok');
+            $table->string('status',15);
             $table->timestamps();
         });
     }

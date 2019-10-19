@@ -25,7 +25,11 @@ class BarangController extends Controller
     {
         return view('admin.dataBarang');
     }
-
+    // public function viewUpdate($id)
+    // {
+    //     $data = Barang::find($id);
+    //     return view ('admin.dataBarang', compact('data'));
+    // }
     /**
      * Store a newly created resource in storage.
      *
@@ -39,6 +43,7 @@ class BarangController extends Controller
             'harga'=> $request->harga,
             'kode'=> $request->kode,
             'stok'=> $request->stok,
+            'status'=>$request->status,
         ]);
         Barang::create($insert);
         return redirect('/tambahDataBarang');
@@ -74,9 +79,16 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateBarang(Request $request, $id)
     {
-        //
+        $ubah= Barang::find($id);
+        $ubah->nama_barang=$request->nama_barang;
+        $ubah->harga=$request->harga;
+        $ubah->kode=$request->kode;
+        $ubah->stok=$request->stok;
+        $ubah->status=$request->status;
+        $ubah->save();
+        return redirect('/tambahDataBarang');
     }
 
     /**
