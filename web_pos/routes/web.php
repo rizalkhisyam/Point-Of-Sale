@@ -25,3 +25,4 @@ Route::get('/dataTransaksi','TransaksiController@lihatDataTransaksi');
 
 /* Bagian Barang */
 Route::post('/tambahBarang','BarangController@tambahBarang');
+Route::post('/updateBarang/{id}','BarangController@updateBarang');
