@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Karyawan;
 class AdminController extends Controller
 {
     /**
@@ -16,8 +16,10 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    public function tambah(){
-        return view('admin.dataKaryawan');
+    public function karyawan(){
+
+        $karyawan = Karyawan::all();
+        return view('admin.dataKaryawan', compact('karyawan'));
     }
 
     /**

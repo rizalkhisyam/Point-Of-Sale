@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Barang;
-class BarangController extends Controller
+use App\Karyawan;
+class KaryawansController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -21,32 +21,29 @@ class BarangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function tambahDataBarang()
+    public function create()
     {
-        return view('admin.dataBarang');
+        
     }
-    // public function viewUpdate($id)
-    // {
-    //     $data = Barang::find($id);
-    //     return view ('admin.dataBarang', compact('data'));
-    // }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function tambahBarang(Request $request)
+    public function store(Request $request)
     {
-        $insert =([
-            'nama_barang'=> $request->nama_barang,
-            'harga'=> $request->harga,
-            'kode'=> $request->kode,
-            'stok'=> $request->stok,
-            'status'=>$request->status,
+        $insert = ([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'level' => $request->level,
         ]);
-        Barang::create($insert);
-        return redirect('/tambahDataBarang');
+
+        Karyawan::create($insert);
+        return redirect('/tambahData');
+        
     }
 
     /**
@@ -55,10 +52,9 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function dataBarang()
+    public function show($id)
     {
-        $tampil = Barang::all();
-        return view ('admin.dataBarang', compact('tampil'));
+        
     }
 
     /**
@@ -79,16 +75,9 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateBarang(Request $request, $id)
+    public function update(Request $request, $id)
     {
-        $ubah= Barang::find($id);
-        $ubah->nama_barang=$request->nama_barang;
-        $ubah->harga=$request->harga;
-        $ubah->kode=$request->kode;
-        $ubah->stok=$request->stok;
-        $ubah->status=$request->status;
-        $ubah->save();
-        return redirect('/tambahDataBarang');
+        //
     }
 
     /**
