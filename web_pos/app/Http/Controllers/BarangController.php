@@ -57,7 +57,7 @@ class BarangController extends Controller
      */
     public function dataBarang()
     {
-        $tampil = Barang::all();
+        $tampil = Barang::where('status','ada')->get();
         return view ('admin.dataBarang', compact('tampil'));
     }
 
@@ -90,7 +90,13 @@ class BarangController extends Controller
         $ubah->save();
         return redirect('/tambahDataBarang');
     }
-
+    public function hapusBarang(Request $request, $id)
+    {
+        $ubah= Barang::find($id);
+        $ubah->status=$request->status;
+        $ubah->save();
+        return redirect('/tambahDataBarang');
+    }
     /**
      * Remove the specified resource from storage.
      *
