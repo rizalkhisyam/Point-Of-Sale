@@ -104,16 +104,19 @@
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">Hapus Data</h4>
                                     </div>
-                                    <div class="container   ">
-                                        <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                            Hapus Barang
-                                        </a>
+                                    <form class="user" action="/hapusBarang/{{$data->id}}" method="POST">
+                                    <div class="container">
+                                    <input type="text" value="kosong" name="status" hidden>
+                                            {{ csrf_field() }}
+                                            <button class="btn btn-primary btn-user btn-block" type="submit">Hapus Data
+                                                Barang</button>
                                         <hr>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default"
                                             data-dismiss="modal">Close</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
