@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
+use File;
 class BarangController extends Controller
 {
     /**
@@ -38,12 +39,16 @@ class BarangController extends Controller
      */
     public function tambahBarang(Request $request)
     {
+        $file=$request->file('fotoBarang');
+        $fileName=$file->getClientOriginalName();
+        $file->move("image/fotoBarang/",$fileName);
         $insert =([
             'nama_barang'=> $request->nama_barang,
             'harga'=> $request->harga,
             'kode'=> $request->kode,
             'stok'=> $request->stok,
             'status'=>$request->status,
+            'fotoBarang'=>$fileName,
         ]);
         Barang::create($insert);
         return redirect('/tambahDataBarang');
@@ -79,6 +84,7 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function updateBarang(Request $request, $id)
     {
         $ubah= Barang::find($id);
@@ -87,6 +93,15 @@ class BarangController extends Controller
         $ubah->kode=$request->kode;
         $ubah->stok=$request->stok;
         $ubah->status=$request->status;
+        if($request->file('fotoBarang')==null){
+            $ubah->fotoBarang=$ubah->fotoBarang;
+        }else{
+            file::delete('image/fotoBarang/.$ubah->fotoBarang');
+            $file=$request->file('fotoBarang');
+            $fileName=$file->getClientOriginalName();
+            $request->file('fotoBarang')->move("image/fotoBarang",$fileName);
+            $ubah->fotoBarang=$fileName;
+        }
         $ubah->save();
         return redirect('/tambahDataBarang');
     }
