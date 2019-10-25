@@ -54,7 +54,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Update Data</h4>
+                                        
                                     </div>
                                     <div class="container">
                                         <form class="user" action="/updateBarang/{{$data->id}}" method="POST" enctype="multipart/form-data">
@@ -105,7 +105,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Hapus Data</h4>
+                                       
                                     </div>
                                     <form class="user" action="/hapusBarang/{{$data->id}}" method="POST">
                                         <div class="container">
