@@ -46,7 +46,7 @@
                                             data-toggle="modal"
                                             data-target="#updateData{{$data->id}}">Update</button></a>
                                     <button type="button" class="btn btn-info" data-toggle="modal"
-                                        data-target="#hapusData">Hapus</button>
+                                        data-target="#hapusData{{$data->id}}">Hapus</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                         <!-- Modal Untuk Hapus -->
-                        <div class="modal fade" id="hapusData" role="dialog">
+                        <div class="modal fade" id="hapusData{{$data->id}}" role="dialog">
                             <div class="modal-dialog">
                                 <!-- Modal content-->
                                 <div class="modal-content">
