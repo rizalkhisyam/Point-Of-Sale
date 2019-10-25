@@ -27,3 +27,4 @@ Route::post('/addKaryawan', 'KaryawansController@store');
 
 
 
+
