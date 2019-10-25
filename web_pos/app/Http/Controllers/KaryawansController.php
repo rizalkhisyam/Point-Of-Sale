@@ -88,6 +88,7 @@ class KaryawansController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $res=Karyawan::find($id)->delete();
+        return redirect('/tambahData');
     }
 }

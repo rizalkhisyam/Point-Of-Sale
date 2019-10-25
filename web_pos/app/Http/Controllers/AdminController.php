@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function karyawan(){
 
-        $karyawan = Karyawan::all();
+        $karyawan = Karyawan::where('level','2')->get();
         return view('admin.dataKaryawan', compact('karyawan'));
     }
 
