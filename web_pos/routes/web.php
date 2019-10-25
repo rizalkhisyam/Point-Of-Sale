@@ -24,6 +24,7 @@ Route::get('/admins','AdminController@index');
 Route::get('/tambahData','KaryawansController@index');
 Route::post('/addKaryawan', 'KaryawansController@store');
 Route::delete('/deleteKaryawan/{id}', 'KaryawansController@destroy');
+Route::patch('/updateData/{id}', 'KaryawansController@update');
 
 //barang
 Route::get('/tambahDataBarang','BarangController@dataBarang');

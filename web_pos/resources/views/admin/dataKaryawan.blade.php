@@ -20,9 +20,9 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Nama</th>
+                      <th>Nama Karyawan</th>
                       <th>E-mail</th>
-                      <th>Status Karyawan</th>
+                      <!-- <th>Status Karyawan</th> -->
                     </tr>
                   </thead>
                   
@@ -31,14 +31,14 @@
                     <tr>
                       <td>{{$kr -> name}}</td>
                       <td>{{$kr -> email}}</td>
-                      <td>{{$kr -> level}}</td>
+                      <!-- <td>{{$kr -> level}}</td> -->
                       <td>
-                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#updateData">Update</button>
+                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#updateData{{$kr->id}}">Update</button>
                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#hapusData{{$kr->id}}">Hapus</button>
                       </td>
                     </tr>
 
-                    <div class="modal fade" id="updateData" role="dialog">
+<div class="modal fade" id="updateData{{$kr->id}}" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -48,16 +48,18 @@
           <!-- <h4 class="modal-title">Update Data</h4> -->
         </div>
         <div class="container   ">
-        <form class="user">
+        <form class="user" action="/updateData/{{$kr->id}}" method="post">
+        @method('patch')
+        @csrf
             <div class="form-group">
                 <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                    placeholder="Nama Karyawan">
+                    placeholder="Nama Karyawan" name="name" value="{{$kr->name}}">
             </div>
             <div class="form-group">
                 <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                    placeholder="Email Address">
+                    placeholder="Email Address" name="email" value="{{$kr->email}}">
             </div>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                         placeholder="Password">
@@ -66,10 +68,8 @@
                     <input type="password" class="form-control form-control-user" id="exampleRepeatPassword"
                         placeholder="Repeat Password">
                 </div>
-            </div>
-            <a href="login.html" class="btn btn-primary btn-user btn-block">
-                Update Data Karyawan
-            </a>
+            </div> -->
+            <button class="btn btn-primary btn-user btn-block" type="submit">Update Data Karyawan</button>
             <hr>
 
         </form>

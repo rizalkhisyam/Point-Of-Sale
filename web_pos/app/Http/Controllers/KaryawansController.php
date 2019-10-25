@@ -78,7 +78,12 @@ class KaryawansController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Karyawan::where('id', $id)->update([
+            'name'=>$request->name,
+            'email'=>$request->email
+        ]);
+
+        return redirect ('/tambahData');
     }
 
     /**
