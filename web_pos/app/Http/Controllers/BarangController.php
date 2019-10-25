@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
+use File;
 class BarangController extends Controller
 {
     /**
@@ -25,7 +26,11 @@ class BarangController extends Controller
     {
         return view('admin.dataBarang');
     }
-
+    // public function viewUpdate($id)
+    // {
+    //     $data = Barang::find($id);
+    //     return view ('admin.dataBarang', compact('data'));
+    // }
     /**
      * Store a newly created resource in storage.
      *
@@ -34,14 +39,19 @@ class BarangController extends Controller
      */
     public function tambahBarang(Request $request)
     {
+        $file=$request->file('fotoBarang');
+        $fileName=$file->getClientOriginalName();
+        $file->move("image/fotoBarang/",$fileName);
         $insert =([
             'nama_barang'=> $request->nama_barang,
             'harga'=> $request->harga,
             'kode'=> $request->kode,
             'stok'=> $request->stok,
+            'status'=>$request->status,
+            'fotoBarang'=>$fileName,
         ]);
         Barang::create($insert);
-        return view ('admin.index');
+        return redirect('/tambahDataBarang');
     }
 
     /**
@@ -52,7 +62,7 @@ class BarangController extends Controller
      */
     public function dataBarang()
     {
-        $tampil = Barang::all();
+        $tampil = Barang::where('status','ada')->get();
         return view ('admin.dataBarang', compact('tampil'));
     }
 
@@ -74,11 +84,34 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    
+    public function updateBarang(Request $request, $id)
     {
-        //
+        $ubah= Barang::find($id);
+        $ubah->nama_barang=$request->nama_barang;
+        $ubah->harga=$request->harga;
+        $ubah->kode=$request->kode;
+        $ubah->stok=$request->stok;
+        $ubah->status=$request->status;
+        if($request->file('fotoBarang')==null){
+            $ubah->fotoBarang=$ubah->fotoBarang;
+        }else{
+            file::delete('image/fotoBarang/.$ubah->fotoBarang');
+            $file=$request->file('fotoBarang');
+            $fileName=$file->getClientOriginalName();
+            $request->file('fotoBarang')->move("image/fotoBarang",$fileName);
+            $ubah->fotoBarang=$fileName;
+        }
+        $ubah->save();
+        return redirect('/tambahDataBarang');
     }
-
+    public function hapusBarang(Request $request, $id)
+    {
+        $ubah= Barang::find($id);
+        $ubah->status=$request->status;
+        $ubah->save();
+        return redirect('/tambahDataBarang');
+    }
     /**
      * Remove the specified resource from storage.
      *
