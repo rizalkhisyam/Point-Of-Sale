@@ -36,7 +36,7 @@
                       <td>{{$kr -> level}}</td>
                       <td>
                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#updateData">Update</button>
-                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#hapusData">Hapus</button>
+                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#hapusData{{$karyawan->id}}">Hapus</button>
                       </td>
                     </tr>
                   @endforeach
