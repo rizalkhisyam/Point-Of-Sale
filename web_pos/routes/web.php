@@ -19,8 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@dashboard');
 Route::get('/admins','AdminController@index');
+
 //karyawan
-Route::get('/tambahData','AdminController@karyawan');
+Route::get('/tambahData','KaryawansController@index');
 Route::post('/addKaryawan', 'KaryawansController@store');
 Route::delete('/deleteKaryawan/{id}', 'KaryawansController@destroy');
 

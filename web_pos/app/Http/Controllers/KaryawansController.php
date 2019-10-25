@@ -13,7 +13,8 @@ class KaryawansController extends Controller
      */
     public function index()
     {
-        
+        $karyawan = Karyawan::where('level','2')->get();
+        return view('admin.dataKaryawan', compact('karyawan'));
     }
 
     /**
