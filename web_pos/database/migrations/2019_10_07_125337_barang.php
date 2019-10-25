@@ -13,15 +13,15 @@ class Barang extends Migration
      */
     public function up()
     {
-        Schema::create('barang', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nama_barang');
-            $table->char('kode', 5)->unique();
-            $table->integer('harga');
-            $table->integer('stok');
-            $table->string('status',15);
-            $table->timestamps();
-        });
+        // Schema::create('barang', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->string('nama_barang');
+        //     $table->char('kode', 5)->unique();
+        //     $table->integer('harga');
+        //     $table->integer('stok');
+        //     $table->string('status',15);
+        //     $table->timestamps();
+        // });
     }
 
     /**

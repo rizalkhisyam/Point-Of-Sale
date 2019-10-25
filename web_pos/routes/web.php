@@ -19,10 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@dashboard');
 Route::get('/admins','AdminController@index');
+//karyawan
 Route::get('/tambahData','AdminController@karyawan');
+Route::post('/addKaryawan', 'KaryawansController@store');
+Route::delete('/deleteKaryawan/{id}', 'KaryawansController@destroy');
+
+//barang
 Route::get('/tambahDataBarang','BarangController@dataBarang');
 Route::get('/dataTransaksi','TransaksiController@lihatDataTransaksi');
 Route::post('/tambahBarang','BarangController@tambahBarang');
-Route::post('/addKaryawan', 'KaryawansController@store');
 Route::post('/updateBarang/{id}','BarangController@updateBarang');
 Route::post('/hapusBarang/{id}','BarangController@hapusBarang');
