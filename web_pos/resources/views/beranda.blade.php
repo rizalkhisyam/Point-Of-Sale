@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="no-js">
 
 <head>
   <!-- Mobile Specific Meta -->
@@ -18,10 +18,6 @@
   <title>Qhuy</title>
 
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:400,400i,500,700" rel="stylesheet" />
-  <!--
-      CSS
-      =============================================
-    -->
    
   <link rel="stylesheet" href="{{url('assets/css/linearicons.css')}}" />
   <link rel="stylesheet" href="{{url('assets/css/font-awesome.min.css')}}" />
