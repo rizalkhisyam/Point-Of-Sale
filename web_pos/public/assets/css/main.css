@@ -622,7 +622,7 @@ th {
   margin-right: 0; }
 
 .section-gap {
-  padding: 120px 0; }
+  padding: 110px 0; }
   @media (max-width: 991px) {
     .section-gap {
       padding: 60px 0px; } }
@@ -889,7 +889,8 @@ th {
   color: #222;
   font-size: 48px;
   line-height: 1em;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;  
+}
   .home-banner-left h1 span {
     font-weight: 900; }
   @media (max-width: 768px) {
@@ -906,12 +907,13 @@ th {
       font-size: 40px; } }
 @media (max-width: 800px) {
   .home-banner-left {
-    margin-top: 30px; } }
+    margin-top: 0; } }
 
 .home-banner-right img {
   margin-right: auto !important;
   margin-left: auto !important;
-  display: block; }
+  display: block; 
+}
   @media (max-width: 991px) {
     .home-banner-right img {
       display: none; } }
@@ -919,7 +921,9 @@ th {
 .banner-area {
   background: url(../../image/beranda/banner-bg.png) no-repeat center;
   background-position: right;
-  min-height: 510px; }
+  height: 100%; 
+  position: relative;
+}
 
 .banner-right {
   margin-top: 200px;
@@ -980,30 +984,6 @@ th {
 .about-right p:last-of-type {
   margin-bottom: 0; }
 
-.feature-area {
-  margin-top: -210px; }
-  @media (max-width: 1680px) and (min-width: 1200px) {
-    .feature-area {
-      margin-top: -110px; } }
-  @media (max-width: 1200px) and (min-width: 991px) {
-    .feature-area {
-      display: none; } }
-  @media (max-width: 991px) {
-    .feature-area {
-      margin-top: 0px; } }
-  .feature-area .container-fluid {
-    padding-left: 50px; }
-    @media (min-width: 1921px) {
-      .feature-area .container-fluid {
-        max-width: 1140px;
-        padding-left: 0; }
-        .feature-area .container-fluid .col-lg-2.col-md-6 {
-          -ms-flex: 0 0 16.666667%;
-          flex: 0 0 22.666667%;
-          max-width: 22.666667%; } }
-    @media (max-width: 767px) {
-      .feature-area .container-fluid {
-        padding-left: 15px; } }
 
 .feature-item {
   margin: 30px 0px;
@@ -3059,7 +3039,7 @@ h6 {
     right: 20px; }
 
 .footer-area {
-  padding: 339px 0px 120px;
+  padding: 550px 0px;
   background: url(../../image/beranda/footer-bg.png) no-repeat center; }
   @media (max-width: 991px) {
     .footer-area {
