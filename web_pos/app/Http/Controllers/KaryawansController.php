@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Karyawan;
 class KaryawansController extends Controller
 {
@@ -38,7 +39,7 @@ class KaryawansController extends Controller
         $insert = ([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'level' => $request->level,
         ]);
 
